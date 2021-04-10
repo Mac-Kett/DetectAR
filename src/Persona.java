@@ -70,8 +70,8 @@ public class Persona implements Notificable, Priorizable {
 
         int resultado = 2;
         if(this.prestador == null
-                && this.edad >= 60
-                && this.motivo == Motivo.CONTRACTO_ESTRECHO){
+                || this.edad >= 60
+                || this.motivo == Motivo.CONTRACTO_ESTRECHO){
             resultado = 1;
         }
 

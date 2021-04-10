@@ -30,10 +30,33 @@ public class Dia {
     }
 
     public int mostrarPrioritarios(){
-        //TODO
+        //Va a contar la cantidad de prioritarios en el dia
+
+        int contador = 0;
+
+        for(Persona p: this.inscriptos){
+            if(p.tienePrioridad() == 1){
+                contador++;
+            }
+        }
+        return contador;
     }
 
     public double promedioEdadPersonaSinOS(){
-        //TODO
+
+        double total = 0;
+        int contador = 0;
+        int edades = 0;
+
+        for (Persona p: this.inscriptos){
+            if(p.getPrestador() == null){
+                edades += p.getEdad();
+                contador++;
+            }
+        }
+
+        total = edades / contador;
+
+        return total;
     }
 }
