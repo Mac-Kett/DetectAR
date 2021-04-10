@@ -7,12 +7,14 @@ public class Persona implements Notificable, Priorizable {
     private String prestador;
     private int afiliado;
 
-    public Persona(String dni, String n, String a, int e, Motivo m, String p, int a){
+    public Persona(String dni, String n, String a, int e, Motivo m, String p, int af){
         setDNI(dni);
         setNombre(n);
         setApellido(a);
         setEdad(e);
         this.motivo = m;
+        setPrestador(p);
+        setAfiliado(af);
     }
 
     public String getDNI() {
@@ -65,9 +67,15 @@ public class Persona implements Notificable, Priorizable {
 
     @Override
     public int tienePrioridad() {
-        if(){
 
+        int resultado = 2;
+        if(this.prestador == null
+                && this.edad >= 60
+                && this.motivo == Motivo.CONTRACTO_ESTRECHO){
+            resultado = 1;
         }
+
+        return resultado;
     }
 
     @Override
